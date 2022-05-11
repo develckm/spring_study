@@ -1,0 +1,30 @@
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	
+	<body>
+		<!-- jsp@include file="haeder_nav.html" -->
+		<header th:insert="header_nav.html"></header>
+		<!-- request.getAttribute("test") -->
+		<h1>안녕 멤버리스트  test: <b th:text=${test}></b> </h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>id</th><th>name</th><th>address</th><th>phone</th>
+					<th>signup_time</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="mem:${memList}">
+					<td th:text="${mem.id}"></td>
+					<td th:text="${mem.name}"></td>
+					<td th:text="${mem.address}"></td>
+					<td th:text="${mem.phone}"></td>
+					<td th:text="${mem.signup_time}"></td>
+				
+				</tr>
+			</tbody>
+		</table>		
+	</body>
+</html>

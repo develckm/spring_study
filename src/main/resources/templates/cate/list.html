@@ -1,0 +1,27 @@
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	
+	<body>
+		<!-- jsp@include file="haeder_nav.html" -->
+		<header th:insert="header_nav.html"></header>
+		<!-- request.getAttribute("test") -->
+		<h1> 카테고리 리스트</b> </h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>cate_num</th><th>name</th><th>sub_cate</th><th>detail_cate</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cate:${cateList}">
+					<td th:text="${cate.cate_num}"></td>
+					<td th:text="${cate.name}"></td>
+					<td th:text="${cate.sub_cate}"></td>				
+					<!-- <td th:text="${cate.detail_cate}"></td>	 -->			
+				</tr>
+			</tbody>
+		</table>		
+	</body>
+</html>
