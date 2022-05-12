@@ -1,11 +1,13 @@
 <html lang="en" xmlns:th="http:/www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
+		<!-- 정적파일 위치인 static 도 root  경로로 인지 -->
+		<script src="/js/mem/signup.js" defer="defer"></script>
 	</head>
 	<body>
 		<header th:insert="header_nav.html"></header>
 		<h1>회원가입 페이지 state:<strong th:text=${state}></strong></h1>
-		<form action="/mem/signup" method="post">
+		<form action="/mem/signup" method="post" name="signup">
 			<p>
 			<label>
 				아이디:<input type="text" name="id" value="" placeholder="아이디 입력">

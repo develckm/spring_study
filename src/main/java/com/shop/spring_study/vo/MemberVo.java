@@ -30,20 +30,35 @@ public class MemberVo {//select * from memberVo
 	private String phone;   
 	private String email;          
 	private String name;        
-	private String address;        
-	private String address_detail;
+	private String address;
+	@Column(name = "address_detail")
+	private String addressDetail;
 	
-	@Column(nullable = true, insertable = false, updatable = false)
-	private	Date signup_time;    
+	@Column(name="signup_time", nullable = true, insertable = false, updatable = false)
+	private	Date signupTime;    
 	//new SimpleDateFormat("yyyy-MM-dd").parse("1986-05-24")
 	@DateTimeFormat(pattern = "yyyy-MM-dd") 
 	private Date birth;          
 	private byte grade;
+	
+	public String getAddressDetail() {
+		return addressDetail;
+	}
+	public void setAddressDetail(String addressDetail) {
+		this.addressDetail = addressDetail;
+	}
+	public Date getSignupTime() {
+		return signupTime;
+	}
+	public void setSignupTime(Date signupTime) {
+		this.signupTime = signupTime;
+	}
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
-		this.id = id;
+		//this.id = ((id!="")?id:null);
+		this.id=id;
 	}
 	public String getPw() {
 		return pw;
@@ -76,21 +91,6 @@ public class MemberVo {//select * from memberVo
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getAddress_detail() {
-		return address_detail;
-	}
-	public void setAddress_detail(String address_detail) {
-		this.address_detail = address_detail;
-	}
-	public Date getSignup_time() {
-		return signup_time;
-	}
-	public void setSignup_time(Date signup_time) {
-		//null=>처리
-		//if(signup_time==null){ this.signup_time=new Date();  }else{
-		this.signup_time = signup_time;
-		//}
-	}
 	public Date getBirth() {
 		return birth;
 	}
@@ -108,8 +108,8 @@ public class MemberVo {//select * from memberVo
 		return "MemberVo={\"id\": \"" + id + "\", \"pw\": \"" + pw
 				+ "\", \"phone\": \"" + phone + "\", \"email\": \"" + email
 				+ "\", \"name\": \"" + name + "\", \"address\": \"" + address
-				+ "\", \"address_detail\": \"" + address_detail
-				+ "\", \"signup_time\": \"" + signup_time + "\", \"birth\": \""
+				+ "\", \"address_detail\": \"" + addressDetail
+				+ "\", \"signup_time\": \"" + signupTime + "\", \"birth\": \""
 				+ birth + "\", \"grade\": \"" + grade + "\"}";
 	}          
 	

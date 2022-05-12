@@ -16,7 +16,9 @@ public class CateController {
 	@GetMapping("/list.do")
 	public String list(Model m) {
 		//System.out.println(cr.findAll());
-		m.addAttribute("cateList",cr.findAll());
+		//m.addAttribute("cateList",cr.findAll());
+		m.addAttribute("cateList",cr.selectAllJPQL());
+		
 		return "cate/list";
 	}
 }
